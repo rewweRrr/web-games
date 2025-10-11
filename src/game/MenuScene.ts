@@ -110,6 +110,7 @@ export class MenuScene extends Phaser.Scene {
         goal: this.goal,
         spawnInterval: this.spawnInterval,
         frogLifetime: this.frogLifetime,
+        frogSize: this.frogSize,
       })
     })
 
