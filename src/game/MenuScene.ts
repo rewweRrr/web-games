@@ -4,7 +4,7 @@ export class MenuScene extends Phaser.Scene {
   goal = 10
   spawnInterval = 1400
   frogLifetime = 2500
-  frogSize = 0.5
+  frogSize = 0.3
 
   constructor() {
     super('MenuScene')
