@@ -8,6 +8,7 @@ export default class FrogScene extends Phaser.Scene {
   scoreText!: Phaser.GameObjects.Text
   spawnInterval = 800
   frogLifetime = 1500
+  frogSize = 0.12
   spawnEvent!: Phaser.Time.TimerEvent
 
   constructor() {
@@ -62,10 +63,10 @@ export default class FrogScene extends Phaser.Scene {
   spawnFrog() {
     const w = this.scale.width
     const h = this.scale.height
-    const size = Math.round(Math.min(w, h) * 0.12) // размер эмодзи
+    const size = Math.round(Math.min(w, h) * this.frogSize) // размер эмодзи
 
     const x = Phaser.Math.Between(size / 2 + 8, w - size / 2 - 8)
-    const y = Phaser.Math.Between(Math.round(h * 0.2), h - Math.round(h * 0.12))
+    const y = Phaser.Math.Between(Math.round(h * 0.2), h - Math.round(h * this.frogSize))
 
     const frog = this.add.text(x, y, '🐸', {
       fontSize: `${size}px`,
@@ -92,7 +93,7 @@ export default class FrogScene extends Phaser.Scene {
 
       if (this.score >= this.goal) {
         playWin()
-        const big = Math.round(Math.min(w, h) * 0.12)
+        const big = Math.round(Math.min(w, h) * this.frogSize)
         this.add.text(w / 2, h / 2, 'Победа! 🎉', {
           fontSize: `${big}px`,
           backgroundColor: 'rgba(255,255,255,0.9)',

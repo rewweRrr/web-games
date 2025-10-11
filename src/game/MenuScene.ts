@@ -4,6 +4,7 @@ export default class MenuScene extends Phaser.Scene {
   goal = 10
   spawnInterval = 1400
   frogLifetime = 2500
+  frogSize = 0.2
 
   constructor() {
     super('MenuScene')
@@ -75,6 +76,24 @@ export default class MenuScene extends Phaser.Scene {
       this.frogLifetime = this.frogLifetime + 100
       lifeText.setText(`Время жизни лягушки (ms):  ${this.frogLifetime}`)
     })
+
+    // Frog size control
+    const sizeText = this.add.text(width / 2, height * 0.68, `Размер лягушки:  ${this.frogSize}`, {
+      fontSize: `${Math.round(Math.min(width, height) * 0.032)}px`,
+    }).setOrigin(0.5)
+
+    const sizeMinus = this.add.text(width / 2 + 70, height * 0.68, '-', { fontSize: `${Math.round(Math.min(width, height) * 0.045)}px` }).setOrigin(0.5).setInteractive()
+    const sizePlus = this.add.text(width / 2 + 180, height * 0.68, '+', { fontSize: `${Math.round(Math.min(width, height) * 0.045)}px` }).setOrigin(0.5).setInteractive()
+
+    sizeMinus.on('pointerdown', () => {
+      this.frogSize = Math.round(100 * Math.max(0.12, this.frogSize - 0.01)) / 100
+      sizeText.setText(`Размер лягушки:  ${this.frogSize}`)
+    })
+    sizePlus.on('pointerdown', () => {
+      this.frogSize = Math.round(100 * (this.frogSize + 0.01)) / 100
+      sizeText.setText(`Размер лягушки::  ${this.frogSize}`)
+    })
+
     const startBtn = this.add.text(width / 2, height * 0.76, 'Старт', {
       fontSize: `${Math.round(Math.min(width, height) * 0.045)}px`,
       backgroundColor: '#065f46', // тёмно-зелёный фон
