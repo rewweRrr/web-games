@@ -6,20 +6,27 @@ let game: Phaser.Game | null = null
 
 export function initGame(parentId = 'game-container') {
   if (game) {
-    try { game.destroy(true) }
-    catch (e) {}
+    try {
+      game.destroy(true)
+    }
+    catch {}
     game = null
   }
+
+  const container = document.getElementById(parentId)
+  const rect = container ? container.getBoundingClientRect() : { width: 800, height: 500 }
+  const width = Math.max(300, Math.round(rect.width))
+  const height = Math.max(300, Math.round(rect.height))
 
   const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
     parent: parentId,
     backgroundColor: '#87ceeb',
     scale: {
-      mode: Phaser.Scale.FIT,
+      mode: Phaser.Scale.RESIZE, // использует размеры контейнера — лучше для узких экранов
       autoCenter: Phaser.Scale.CENTER_BOTH,
-      width: 800,
-      height: 500,
+      width,
+      height,
     },
     scene: [MenuScene, FrogScene],
   }

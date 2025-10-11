@@ -1,5 +1,3 @@
-// Простейший WebAudio-бипер — не требует внешних файлов
-
 const ctx = new (window.AudioContext || (window as any).webkitAudioContext)()
 
 function beep(freq = 440, duration = 0.12, type: OscillatorType = 'sine') {
@@ -17,6 +15,12 @@ function beep(freq = 440, duration = 0.12, type: OscillatorType = 'sine') {
   o.stop(now + duration + 0.02)
 }
 
-export function playClick() { beep(900, 0.06, 'sine') }
-export function playSpawn() { beep(650, 0.08, 'triangle') }
-export function playWin() { beep(1100, 0.18, 'sawtooth') }
+export function playClick() {
+  beep(900, 0.06, 'sine')
+}
+export function playSpawn() {
+  beep(650, 0.08, 'triangle')
+}
+export function playWin() {
+  beep(1100, 0.18, 'sawtooth')
+}
