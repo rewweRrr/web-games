@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import FrogScene from './FrogScene'
-import MenuScene from './MenuScene'
+import { MenuScene } from './MenuScene'
 
 let game: Phaser.Game | null = null
 
@@ -23,7 +23,7 @@ export function initGame(parentId = 'game-container') {
     parent: parentId,
     backgroundColor: '#87ceeb',
     scale: {
-      mode: Phaser.Scale.RESIZE, // использует размеры контейнера — лучше для узких экранов
+      mode: Phaser.Scale.FIT, // использует размеры контейнера — лучше для узких экранов
       autoCenter: Phaser.Scale.CENTER_BOTH,
       width,
       height,
