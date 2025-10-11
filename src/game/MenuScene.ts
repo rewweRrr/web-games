@@ -4,7 +4,7 @@ export class MenuScene extends Phaser.Scene {
   goal = 10
   spawnInterval = 1400
   frogLifetime = 2500
-  frogSize = 0.2
+  frogSize = 0.5
 
   constructor() {
     super('MenuScene')
@@ -88,12 +88,12 @@ export class MenuScene extends Phaser.Scene {
     const sizePlus = this.add.text(sizeNumber.x + sizeNumber.width + 8, sizeControlHeight, '+', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
 
     sizeMinus.on('pointerdown', () => {
-      this.frogSize = Math.round(100 * Math.max(0.12, this.frogSize - 0.01)) / 100
+      this.frogSize = Math.round(100 * Math.max(0.12, this.frogSize - 0.1)) / 100
       sizeNumber.setText(String(this.frogSize))
       sizePlus.x = sizeNumber.x + sizeNumber.width + 8
     })
     sizePlus.on('pointerdown', () => {
-      this.frogSize = Math.round(100 * (this.frogSize + 0.01)) / 100
+      this.frogSize = Math.round(100 * (this.frogSize + 0.1)) / 100
       sizeNumber.setText(String(this.frogSize))
       sizePlus.x = sizeNumber.x + sizeNumber.width + 8
     })

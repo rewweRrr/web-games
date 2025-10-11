@@ -8,7 +8,7 @@ export default class FrogScene extends Phaser.Scene {
   scoreText!: Phaser.GameObjects.Text
   spawnInterval = 800
   frogLifetime = 1500
-  frogSize = 0.12
+  frogSize = 0.2
   spawnEvent!: Phaser.Time.TimerEvent
 
   constructor() {
