@@ -26,7 +26,7 @@ export class MenuScene extends Phaser.Scene {
     this.add.text(centerX, height * 0.32, 'Кликай по лягушкам, чтобы набрать очки', { fontSize: 20 }).setOrigin(0.5)
 
     // Goal controls
-    const goalText = this.add.text(centerX, height * 0.46, `Цель: ${this.goal}`, { fontSize: 24 }).setOrigin(0.5)
+    const goalText = this.add.text(centerX, height * 0.46, `Цель: ${this.goal}`, { fontSize: 16 }).setOrigin(0.5)
 
     const minus = this.add.text(centerX - 90, height * 0.46, '-', { fontSize: 24 }).setOrigin(0.5).setInteractive()
     const plus = this.add.text(centerX + 90, height * 0.46, '+', { fontSize: 24 }).setOrigin(0.5).setInteractive()
@@ -43,10 +43,10 @@ export class MenuScene extends Phaser.Scene {
 
     // Spawn interval control
     const spawnControlHeight = height * 0.54
-    const spawnText = this.add.text(centerX, spawnControlHeight, 'Интервал появления (ms):', { fontSize: 24 }).setOrigin(0.5)
+    const spawnText = this.add.text(centerX, spawnControlHeight, 'Интервал появления (ms):', { fontSize: 16 }).setOrigin(0.5)
 
     const spawnMinus = this.add.text(spawnText.x + spawnText.displayOriginX, spawnControlHeight, '-', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
-    const spawnNumber = this.add.text(spawnMinus.x + spawnMinus.width + 8, spawnControlHeight, String(this.spawnInterval), { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
+    const spawnNumber = this.add.text(spawnMinus.x + spawnMinus.width + 8, spawnControlHeight, String(this.spawnInterval), { fontSize: 16 }).setOrigin(0, 0.5).setInteractive()
     const spawnPlus = this.add.text(spawnNumber.x + spawnNumber.width + 8, spawnControlHeight, '+', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
 
     spawnMinus.on('pointerdown', () => {
@@ -62,10 +62,10 @@ export class MenuScene extends Phaser.Scene {
 
     // Frog lifetime control
     const lifeControlHeight = height * 0.62
-    const lifeText = this.add.text(centerX, lifeControlHeight, 'Время жизни лягушки (ms):', { fontSize: 24 }).setOrigin(0.5)
+    const lifeText = this.add.text(centerX, lifeControlHeight, 'Время жизни лягушки (ms):', { fontSize: 16 }).setOrigin(0.5)
 
     const lifeMinus = this.add.text(lifeText.x + lifeText.displayOriginX, lifeControlHeight, '-', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
-    const lifeNumber = this.add.text(lifeMinus.x + lifeMinus.width + 8, lifeControlHeight, String(this.frogLifetime), { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
+    const lifeNumber = this.add.text(lifeMinus.x + lifeMinus.width + 8, lifeControlHeight, String(this.frogLifetime), { fontSize: 16 }).setOrigin(0, 0.5).setInteractive()
     const lifePlus = this.add.text(lifeNumber.x + lifeNumber.width + 8, lifeControlHeight, '+', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
 
     lifeMinus.on('pointerdown', () => {
@@ -82,9 +82,9 @@ export class MenuScene extends Phaser.Scene {
     // Frog size control
 
     const sizeControlHeight = height * 0.68
-    const sizeText = this.add.text(centerX, sizeControlHeight, 'Размер лягушки:', { fontSize: 24 }).setOrigin(0.5)
+    const sizeText = this.add.text(centerX, sizeControlHeight, 'Размер лягушки:', { fontSize: 16 }).setOrigin(0.5)
     const sizeMinus = this.add.text(sizeText.x + sizeText.displayOriginX, sizeControlHeight, '-', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
-    const sizeNumber = this.add.text(sizeMinus.x + sizeMinus.width + 8, sizeControlHeight, String(this.frogSize), { fontSize: 24 }).setOrigin(0, 0.5)
+    const sizeNumber = this.add.text(sizeMinus.x + sizeMinus.width + 8, sizeControlHeight, String(this.frogSize), { fontSize: 16 }).setOrigin(0, 0.5)
     const sizePlus = this.add.text(sizeNumber.x + sizeNumber.width + 8, sizeControlHeight, '+', { fontSize: 24 }).setOrigin(0, 0.5).setInteractive()
 
     sizeMinus.on('pointerdown', () => {
